@@ -5,8 +5,9 @@ services:
     env: node
     plan: free  # Change to 'starter' for production ($7/month)
     region: oregon  # Change to your preferred region
-    buildCommand: npm ci && npm run build && npx prisma generate && npx prisma migrate deploy
+    buildCommand: npm install && npm run build && npx prisma generate && npx prisma migrate deploy
     startCommand: node dist/main.js
+    rootDir: ./
     envVars:
       # Database - Use Internal Database URL from Render
       - key: DATABASE_URL
