@@ -1,0 +1,46 @@
+services:
+  # Web Service - API Endpoints
+  - type: web
+    name: dtdl-ai-challenge
+    env: node
+    plan: free  # Change to 'starter' for production ($7/month)
+    region: oregon  # Change to your preferred region
+    buildCommand: npm install && npm run build && npx prisma generate && npx prisma migrate deploy
+    startCommand: npm start
+    envVars:
+      # Database - Use Internal Database URL from Render
+      - key: DATABASE_URL
+        fromDatabase:
+          name: dtdl-challenge-db  # Change to your database name
+          property: connectionString
+      
+      # LLM Provider
+      - key: LLM_PROVIDER
+        value: openai  # or 'anthropic'
+      
+      # OpenAI API Key (set in Render dashboard for security)
+      - key: OPENAI_API_KEY
+        sync: false  # Set manually in Render dashboard
+      
+      # Or Anthropic API Key (if using Anthropic)
+      # - key: ANTHROPIC_API_KEY
+      #   sync: false  # Set manually in Render dashboard
+      
+      # Optional Configuration
+      - key: LLM_MODEL
+        value: gpt-4  # or 'gpt-3.5-turbo' for cheaper testing
+      - key: PORT
+        value: 3000
+      - key: NODE_ENV
+        value: production
+      - key: LOG_LEVEL
+        value: info
+
+databases:
+  # PostgreSQL Database (if not already created)
+  - name: dtdl-challenge-db
+    databaseName: dtdl_challenge
+    user: dtdl_user
+    plan: free  # Change to 'starter' for production ($7/month)
+    region: oregon  # Change to your preferred region
+

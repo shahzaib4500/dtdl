@@ -1,0 +1,107 @@
+[
+  {
+    "timestamp": "2024-01-15T10:00:00Z",
+    "truckId": "Truck_56",
+    "speed": 24.5,
+    "position": { "lat": -23.5, "lon": 117.2 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:05:00Z",
+    "truckId": "Truck_56",
+    "speed": 28.3,
+    "position": { "lat": -23.52, "lon": 117.22 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:10:00Z",
+    "truckId": "Truck_56",
+    "speed": 22.1,
+    "position": { "lat": -23.54, "lon": 117.24 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:15:00Z",
+    "truckId": "Truck_56",
+    "speed": 25.8,
+    "position": { "lat": -23.56, "lon": 117.26 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:20:00Z",
+    "truckId": "Truck_56",
+    "speed": 30.2,
+    "position": { "lat": -23.58, "lon": 117.28 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:25:00Z",
+    "truckId": "Truck_56",
+    "speed": 27.4,
+    "position": { "lat": -23.60, "lon": 117.30 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:30:00Z",
+    "truckId": "Truck_56",
+    "speed": 26.9,
+    "position": { "lat": -23.62, "lon": 117.32 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:35:00Z",
+    "truckId": "Truck_56",
+    "speed": 24.1,
+    "position": { "lat": -23.64, "lon": 117.34 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:40:00Z",
+    "truckId": "Truck_56",
+    "speed": 29.7,
+    "position": { "lat": -23.66, "lon": 117.36 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:45:00Z",
+    "truckId": "Truck_56",
+    "speed": 23.8,
+    "position": { "lat": -23.68, "lon": 117.38 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:50:00Z",
+    "truckId": "Truck_56",
+    "speed": 31.2,
+    "position": { "lat": -23.70, "lon": 117.40 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T10:55:00Z",
+    "truckId": "Truck_56",
+    "speed": 25.5,
+    "position": { "lat": -23.72, "lon": 117.42 },
+    "direction": "North",
+    "routeId": "Route_1"
+  },
+  {
+    "timestamp": "2024-01-15T11:00:00Z",
+    "truckId": "Truck_56",
+    "speed": 28.9,
+    "position": { "lat": -23.74, "lon": 117.44 },
+    "direction": "North",
+    "routeId": "Route_1"
+  }
+]
+

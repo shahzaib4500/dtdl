@@ -1,0 +1,127 @@
+[
+  {
+    "id": "Loader_A",
+    "type": "Loader",
+    "properties": {
+      "status": {
+        "value": "operational",
+        "type": "string",
+        "editable": true
+      },
+      "capacityTonnes": {
+        "value": 50,
+        "type": "number",
+        "editable": true,
+        "constraints": {
+          "min": 0,
+          "max": 100
+        }
+      }
+    },
+    "relationships": {
+      "feedsRoute": "Route_1"
+    }
+  },
+  {
+    "id": "Stockpile_1",
+    "type": "Stockpile",
+    "properties": {
+      "status": {
+        "value": "operational",
+        "type": "string",
+        "editable": true
+      },
+      "capacityTonnes": {
+        "value": 10000,
+        "type": "number",
+        "editable": true
+      }
+    },
+    "relationships": {}
+  },
+  {
+    "id": "Route_1",
+    "type": "HaulRoute",
+    "properties": {
+      "status": {
+        "value": "operational",
+        "type": "string",
+        "editable": true
+      },
+      "distanceKm": {
+        "value": 5.2,
+        "type": "number",
+        "editable": true
+      }
+    },
+    "relationships": {
+      "from": "Loader_A",
+      "to": "Stockpile_1"
+    }
+  },
+  {
+    "id": "Truck_56",
+    "type": "HaulTruck",
+    "properties": {
+      "status": {
+        "value": "operational",
+        "type": "string",
+        "editable": true
+      },
+      "maxSpeedKph": {
+        "value": 40.0,
+        "type": "number",
+        "editable": true,
+        "constraints": {
+          "min": 0,
+          "max": 100
+        }
+      },
+      "payloadTonnes": {
+        "value": 200,
+        "type": "number",
+        "editable": true,
+        "constraints": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
+    "relationships": {
+      "assignedRoute": "Route_1"
+    }
+  },
+  {
+    "id": "Truck_57",
+    "type": "HaulTruck",
+    "properties": {
+      "status": {
+        "value": "operational",
+        "type": "string",
+        "editable": true
+      },
+      "maxSpeedKph": {
+        "value": 45.0,
+        "type": "number",
+        "editable": true,
+        "constraints": {
+          "min": 0,
+          "max": 100
+        }
+      },
+      "payloadTonnes": {
+        "value": 200,
+        "type": "number",
+        "editable": true,
+        "constraints": {
+          "min": 0,
+          "max": 500
+        }
+      }
+    },
+    "relationships": {
+      "assignedRoute": "Route_1"
+    }
+  }
+]
+

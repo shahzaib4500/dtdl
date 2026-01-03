@@ -1,0 +1,1765 @@
+[
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:BaseEquipment;2",
+      "@type": "Interface",
+      "displayName": "Base Equipment",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "status",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "powerDraw_kW",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "ratedThroughput_TPOH",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "actualThroughput_TPOH",
+          "schema": "double"
+        }
+      ],
+      "components": []
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:TurboTwinMetadata;2",
+      "@type": "Interface",
+      "displayName": "TurboTwin Metadata",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "geoLocationLatitude",
+          "schema": "double"
+        },
+        {
+          "@type": "Property",
+          "name": "geoLocationLongitude",
+          "schema": "double"
+        },
+        {
+          "@type": "Property",
+          "name": "geoLocationPolygon",
+          "schema": "string"
+        },
+        {
+          "@type": "Property",
+          "name": "pollTimer",
+          "schema": {
+            "@type": "Object",
+            "fields": [
+              {
+                "name": "sensorA",
+                "schema": "double"
+              },
+              {
+                "name": "sensorB",
+                "schema": "double"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:mining_company_a;1",
+      "@type": "Interface",
+      "displayName": "Mining Company A",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "General",
+          "initialValue": "General"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:example_mine;1"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:example_mine;1",
+      "@type": "Interface",
+      "displayName": "Example Mine",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "General",
+          "initialValue": "General"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:locations;1"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:milling;1"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:haulage;1"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:locations;1",
+      "@type": "Interface",
+      "displayName": "Locations",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Locations",
+          "initialValue": "Locations"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:milling;1",
+      "@type": "Interface",
+      "displayName": "Milling",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Milling",
+          "initialValue": "Milling"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:crushing;1"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:grinding;1"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:flotation;1"
+        },
+        {
+          "@type": "Relationship",
+          "name": "containsGroup",
+          "target": "dtmi:com:akCopperMine:Group:dewatering;1"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:haulage;1",
+      "@type": "Interface",
+      "displayName": "Haulage",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Haulage",
+          "initialValue": "Haulage"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:crushing;1",
+      "@type": "Interface",
+      "displayName": "Crushing",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Milling",
+          "initialValue": "Milling"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:grinding;1",
+      "@type": "Interface",
+      "displayName": "Grinding",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Milling",
+          "initialValue": "Milling"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:flotation;1",
+      "@type": "Interface",
+      "displayName": "Flotation",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Milling",
+          "initialValue": "Milling"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:Group:dewatering;1",
+      "@type": "Interface",
+      "displayName": "Dewatering",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "group",
+          "initialValue": "group"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Milling",
+          "initialValue": "Milling"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:MineLayout;1__twin_Mine_Layout_1",
+      "@type": "Interface",
+      "extends": "dtmi:com:akCopperMine:BaseEquipment;2",
+      "displayName": "Mine Layout",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "terrain",
+          "initialValue": "terrain"
+        },
+        {
+          "@type": "Property",
+          "name": "builderIsPhysical",
+          "schema": "boolean",
+          "value": true,
+          "initialValue": true
+        },
+        {
+          "@type": "Property",
+          "name": "focusSnapDistanceMeters",
+          "schema": "double",
+          "value": 1000,
+          "initialValue": 1000
+        }
+      ],
+      "components": [
+        {
+          "@type": "Component",
+          "name": "turboTwinMetadata",
+          "schema": "dtmi:com:akCopperMine:TurboTwinMetadata;2",
+          "contents": [
+            {
+              "@type": "Property",
+              "name": "latitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "longitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "altitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "headingDeg",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "scale",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "localOffsetMeters",
+              "schema": {
+                "type": "object",
+                "fields": [
+                  {
+                    "name": "x",
+                    "schema": "double"
+                  },
+                  {
+                    "name": "y",
+                    "schema": "double"
+                  },
+                  {
+                    "name": "z",
+                    "schema": "double"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:HaulTruckCAT777;1__twin_Haul_Truck_CAT_777_2",
+      "@type": "Interface",
+      "extends": "dtmi:com:akCopperMine:BaseEquipment;2",
+      "displayName": "Haul Truck CAT 777",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "status",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "engineTemp",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "fuelLevel",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "fuelConsumptionRate",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "brakePedalPos",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "throttlePos",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "vibrationLevel",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureFL",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureFR",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRLO",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRLI",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRRO",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRRI",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "payload",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "speedMph",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posX",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posY",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posZ",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "headingDeg",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "haulPhase",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "haulPathId",
+          "schema": "string"
+        },
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "mobile",
+          "initialValue": "mobile"
+        },
+        {
+          "@type": "Property",
+          "name": "builderIsPhysical",
+          "schema": "boolean",
+          "value": true,
+          "initialValue": true
+        },
+        {
+          "@type": "Property",
+          "name": "focusSnapDistanceMeters",
+          "schema": "double",
+          "value": 200,
+          "initialValue": 200
+        }
+      ],
+      "components": [
+        {
+          "@type": "Component",
+          "name": "turboTwinMetadata",
+          "schema": "dtmi:com:akCopperMine:TurboTwinMetadata;2",
+          "contents": [
+            {
+              "@type": "Property",
+              "name": "geoLocationLatitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "geoLocationLongitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "geoLocationPolygon",
+              "schema": "string"
+            },
+            {
+              "@type": "Property",
+              "name": "pollTimer",
+              "schema": {
+                "type": "object",
+                "fields": [
+                  {
+                    "name": "sensorA",
+                    "schema": "double"
+                  },
+                  {
+                    "name": "sensorB",
+                    "schema": "double"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:HaulTruckCAT777;1__twin_Haul_Truck_CAT_777_3",
+      "@type": "Interface",
+      "extends": "dtmi:com:akCopperMine:BaseEquipment;2",
+      "displayName": "Haul Truck CAT 777",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "status",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "engineTemp",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "fuelLevel",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "fuelConsumptionRate",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "brakePedalPos",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "throttlePos",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "vibrationLevel",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureFL",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureFR",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRLO",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRLI",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRRO",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "tirePressureRRI",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "payload",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "speedMph",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posX",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posY",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posZ",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "headingDeg",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "haulPhase",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "haulPathId",
+          "schema": "string"
+        },
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "mobile",
+          "initialValue": "mobile"
+        },
+        {
+          "@type": "Property",
+          "name": "builderIsPhysical",
+          "schema": "boolean",
+          "value": true,
+          "initialValue": true
+        },
+        {
+          "@type": "Property",
+          "name": "focusSnapDistanceMeters",
+          "schema": "double",
+          "value": 200,
+          "initialValue": 200
+        }
+      ],
+      "components": [
+        {
+          "@type": "Component",
+          "name": "turboTwinMetadata",
+          "schema": "dtmi:com:akCopperMine:TurboTwinMetadata;2",
+          "contents": [
+            {
+              "@type": "Property",
+              "name": "geoLocationLatitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "geoLocationLongitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "geoLocationPolygon",
+              "schema": "string"
+            },
+            {
+              "@type": "Property",
+              "name": "pollTimer",
+              "schema": {
+                "type": "object",
+                "fields": [
+                  {
+                    "name": "sensorA",
+                    "schema": "double"
+                  },
+                  {
+                    "name": "sensorB",
+                    "schema": "double"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:LoaderCAT994;1__twin_Loader_CAT_994_4",
+      "@type": "Interface",
+      "extends": "dtmi:com:akCopperMine:BaseEquipment;2",
+      "displayName": "Loader CAT 994",
+      "contents": [
+        {
+          "@type": "Telemetry",
+          "name": "status",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "speedMph",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posX",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posY",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "posZ",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "headingDeg",
+          "schema": "double"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "haulPhase",
+          "schema": "string"
+        },
+        {
+          "@type": "Telemetry",
+          "name": "haulPathId",
+          "schema": "string"
+        },
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "mobile",
+          "initialValue": "mobile"
+        },
+        {
+          "@type": "Property",
+          "name": "builderIsPhysical",
+          "schema": "boolean",
+          "value": true,
+          "initialValue": true
+        },
+        {
+          "@type": "Property",
+          "name": "focusSnapDistanceMeters",
+          "schema": "double",
+          "value": 200,
+          "initialValue": 200
+        }
+      ],
+      "components": [
+        {
+          "@type": "Component",
+          "name": "turboTwinMetadata",
+          "schema": "dtmi:com:akCopperMine:TurboTwinMetadata;2",
+          "contents": [
+            {
+              "@type": "Property",
+              "name": "geoLocationLatitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "geoLocationLongitude",
+              "schema": "double"
+            },
+            {
+              "@type": "Property",
+              "name": "geoLocationPolygon",
+              "schema": "string"
+            },
+            {
+              "@type": "Property",
+              "name": "pollTimer",
+              "schema": {
+                "type": "object",
+                "fields": [
+                  {
+                    "name": "sensorA",
+                    "schema": "double"
+                  },
+                  {
+                    "name": "sensorB",
+                    "schema": "double"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:HaulPath:default_haulage;1",
+      "@type": "Interface",
+      "displayName": "Default haulage",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "pathName",
+          "schema": "string",
+          "value": "Default haulage",
+          "initialValue": "Default haulage"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Haulage",
+          "initialValue": "Haulage"
+        },
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "haulPath",
+          "initialValue": "haulPath"
+        },
+        {
+          "@type": "Property",
+          "name": "builderIsPhysical",
+          "schema": "boolean",
+          "value": false,
+          "initialValue": false
+        },
+        {
+          "@type": "Property",
+          "name": "nodes",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Object",
+              "fields": [
+                {
+                  "name": "id",
+                  "schema": "string"
+                },
+                {
+                  "name": "x",
+                  "schema": "double"
+                },
+                {
+                  "name": "y",
+                  "schema": "double"
+                },
+                {
+                  "name": "z",
+                  "schema": "double"
+                },
+                {
+                  "name": "label",
+                  "schema": "string"
+                }
+              ]
+            }
+          },
+          "value": []
+        },
+        {
+          "@type": "Property",
+          "name": "segments",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Object",
+              "fields": [
+                {
+                  "name": "a",
+                  "schema": "string"
+                },
+                {
+                  "name": "b",
+                  "schema": "string"
+                },
+                {
+                  "name": "cost",
+                  "schema": "double"
+                }
+              ]
+            }
+          },
+          "value": []
+        },
+        {
+          "@type": "Property",
+          "name": "assignedEquipmentIds",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": "string"
+          },
+          "value": []
+        },
+        {
+          "@type": "Relationship",
+          "name": "assignedEquipment",
+          "target": "dtmi:com:akCopperMine:BaseEquipment;2"
+        }
+      ]
+    },
+    {
+      "@context": "dtmi:dtdl:context;2",
+      "@id": "dtmi:com:akCopperMine:HaulPath:path_1;1",
+      "@type": "Interface",
+      "displayName": "Path 1",
+      "contents": [
+        {
+          "@type": "Property",
+          "name": "pathName",
+          "schema": "string",
+          "value": "Path 1",
+          "initialValue": "Path 1"
+        },
+        {
+          "@type": "Property",
+          "name": "domain",
+          "schema": "string",
+          "value": "Haulage",
+          "initialValue": "Haulage"
+        },
+        {
+          "@type": "Property",
+          "name": "builderCategory",
+          "schema": "string",
+          "value": "haulPath",
+          "initialValue": "haulPath"
+        },
+        {
+          "@type": "Property",
+          "name": "builderIsPhysical",
+          "schema": "boolean",
+          "value": false,
+          "initialValue": false
+        },
+        {
+          "@type": "Property",
+          "name": "nodes",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Object",
+              "fields": [
+                {
+                  "name": "id",
+                  "schema": "string"
+                },
+                {
+                  "name": "x",
+                  "schema": "double"
+                },
+                {
+                  "name": "y",
+                  "schema": "double"
+                },
+                {
+                  "name": "z",
+                  "schema": "double"
+                },
+                {
+                  "name": "label",
+                  "schema": "string"
+                }
+              ]
+            }
+          },
+          "value": [
+            {
+              "id": "haul_l5hikj",
+              "x": -66.102994116375,
+              "y": 71.68896424263555,
+              "z": 129.26513540975185,
+              "label": "Start"
+            },
+            {
+              "id": "haul_2mf7sd",
+              "x": -66.102994116375,
+              "y": 71.68896424263555,
+              "z": 129.26513540975185,
+              "label": "Start"
+            },
+            {
+              "id": "haul_65jaoe",
+              "x": -66.4745397568987,
+              "y": 71.68896424263554,
+              "z": 116.15657118666526
+            },
+            {
+              "id": "haul_nj36y1",
+              "x": -66.4745397568987,
+              "y": 71.68896424263554,
+              "z": 116.15657118666526
+            },
+            {
+              "id": "haul_bv9zh1",
+              "x": -62.34950024191782,
+              "y": 71.68896424263555,
+              "z": 89.97154912583225
+            },
+            {
+              "id": "haul_b9ud6f",
+              "x": -62.34950024191782,
+              "y": 71.68896424263555,
+              "z": 89.97154912583225
+            },
+            {
+              "id": "haul_nw6n7h",
+              "x": -60.58414660715609,
+              "y": 71.68896424263554,
+              "z": 88.9575251702901
+            },
+            {
+              "id": "haul_igu8wy",
+              "x": -60.58414660715609,
+              "y": 71.68896424263554,
+              "z": 88.9575251702901
+            },
+            {
+              "id": "haul_flqikv",
+              "x": -60.64223216539671,
+              "y": 72.02131634400769,
+              "z": 96.8596631138013
+            },
+            {
+              "id": "haul_2mgwj1",
+              "x": -60.64223216539671,
+              "y": 72.02131634400769,
+              "z": 96.8596631138013
+            },
+            {
+              "id": "haul_oo3kiv",
+              "x": -60.74599459564138,
+              "y": 72.75214478558836,
+              "z": 106.12891772156878
+            },
+            {
+              "id": "haul_q8m4r5",
+              "x": -60.74599459564138,
+              "y": 72.75214478558836,
+              "z": 106.12891772156878
+            },
+            {
+              "id": "haul_cc476p",
+              "x": -59.02373218603108,
+              "y": 73.54195130955172,
+              "z": 115.87922524022805
+            },
+            {
+              "id": "haul_9mks78",
+              "x": -59.02373218603108,
+              "y": 73.54195130955172,
+              "z": 115.87922524022805
+            },
+            {
+              "id": "haul_57iwsn",
+              "x": -57.41457424468578,
+              "y": 74.16008726257658,
+              "z": 123.70777666928103
+            },
+            {
+              "id": "haul_vd3pnj",
+              "x": -57.41457424468578,
+              "y": 74.16008726257658,
+              "z": 123.70777666928103
+            },
+            {
+              "id": "haul_xplydu",
+              "x": -58.957585864288724,
+              "y": 75.1059337251629,
+              "z": 136.4162645938792
+            },
+            {
+              "id": "haul_ql7yrb",
+              "x": -58.957585864288724,
+              "y": 75.1059337251629,
+              "z": 136.4162645938792
+            },
+            {
+              "id": "haul_aujnku",
+              "x": -59.04756945892544,
+              "y": 75.46206309612155,
+              "z": 145.23152043485192
+            },
+            {
+              "id": "haul_eg7tm5",
+              "x": -59.04756945892544,
+              "y": 75.46206309612155,
+              "z": 145.23152043485192
+            },
+            {
+              "id": "haul_nkdsvg",
+              "x": -52.24575789368137,
+              "y": 76.2580376436564,
+              "z": 132.92605608882533
+            },
+            {
+              "id": "haul_vch2oh",
+              "x": -52.24575789368137,
+              "y": 76.2580376436564,
+              "z": 132.92605608882533
+            },
+            {
+              "id": "haul_adiv27",
+              "x": -49.82852445418921,
+              "y": 77.04405103696855,
+              "z": 122.7313659329858
+            },
+            {
+              "id": "haul_8s7hay",
+              "x": -49.82852445418921,
+              "y": 77.04405103696855,
+              "z": 122.7313659329858
+            },
+            {
+              "id": "haul_dpa0ej",
+              "x": -47.19453451190387,
+              "y": 77.74464842631507,
+              "z": 114.11974111870298
+            },
+            {
+              "id": "haul_prpd8m",
+              "x": -47.19453451190387,
+              "y": 77.74464842631507,
+              "z": 114.11974111870298
+            },
+            {
+              "id": "haul_7d8pbm",
+              "x": -47.5337469503104,
+              "y": 78.91464405772629,
+              "z": 98.95077144350788
+            },
+            {
+              "id": "haul_shn1ij",
+              "x": -47.5337469503104,
+              "y": 78.91464405772629,
+              "z": 98.95077144350788
+            },
+            {
+              "id": "haul_zvjecg",
+              "x": -45.60696280831684,
+              "y": 79.90511496268434,
+              "z": 86.57197895988331
+            },
+            {
+              "id": "haul_bipdq2",
+              "x": -45.60696280831684,
+              "y": 79.90511496268434,
+              "z": 86.57197895988331
+            },
+            {
+              "id": "haul_24vmnv",
+              "x": -45.50492201085531,
+              "y": 80.49286793976226,
+              "z": 76.14487017760412
+            },
+            {
+              "id": "haul_g3ty0y",
+              "x": -45.50492201085531,
+              "y": 80.49286793976226,
+              "z": 76.14487017760412
+            },
+            {
+              "id": "haul_9kg8yt",
+              "x": -50.400706419339066,
+              "y": 80.82965665586416,
+              "z": 69.02677022429661
+            },
+            {
+              "id": "haul_q429lb",
+              "x": -50.400706419339066,
+              "y": 80.82965665586416,
+              "z": 69.02677022429661
+            },
+            {
+              "id": "haul_vklytd",
+              "x": -55.44082320657911,
+              "y": 81.26700193350119,
+              "z": 65.31656846833195
+            },
+            {
+              "id": "haul_yrl3ax",
+              "x": -55.44082320657911,
+              "y": 81.26700193350119,
+              "z": 65.31656846833195
+            },
+            {
+              "id": "haul_hp3psa",
+              "x": -58.17557340785104,
+              "y": 81.4402651194524,
+              "z": 62.969890995892484
+            },
+            {
+              "id": "haul_jr3k5g",
+              "x": -58.17557340785104,
+              "y": 81.4402651194524,
+              "z": 62.969890995892484
+            },
+            {
+              "id": "haul_2t27kd",
+              "x": -58.42327875622618,
+              "y": 82.17462803024068,
+              "z": 52.878682119720686
+            },
+            {
+              "id": "haul_nqu5dr",
+              "x": -58.42327875622618,
+              "y": 82.17462803024068,
+              "z": 52.878682119720686
+            },
+            {
+              "id": "haul_su85yv",
+              "x": -57.175851024990635,
+              "y": 82.20293898304101,
+              "z": 49.945611465785596
+            },
+            {
+              "id": "haul_411bg5",
+              "x": -57.175851024990635,
+              "y": 82.20293898304101,
+              "z": 49.945611465785596
+            },
+            {
+              "id": "haul_8yn9al",
+              "x": -50.061396824111846,
+              "y": 81.78844964056452,
+              "z": 46.634853900280746
+            },
+            {
+              "id": "haul_m69if4",
+              "x": -50.061396824111846,
+              "y": 81.78844964056452,
+              "z": 46.634853900280746
+            },
+            {
+              "id": "haul_c6f4vo",
+              "x": -45.673871328235606,
+              "y": 81.75062172236225,
+              "z": 46.02913326148316
+            },
+            {
+              "id": "haul_35p7dd",
+              "x": -45.673871328235606,
+              "y": 81.75062172236225,
+              "z": 46.02913326148316
+            },
+            {
+              "id": "haul_d2q9d4",
+              "x": -25.29606631645436,
+              "y": 81.75062172236225,
+              "z": 49.58886458052634
+            },
+            {
+              "id": "haul_rqfz2y",
+              "x": -25.29606631645436,
+              "y": 81.75062172236225,
+              "z": 49.58886458052634
+            },
+            {
+              "id": "haul_05pzvz",
+              "x": -3.9633653463632466,
+              "y": 81.75062172236225,
+              "z": 53.93147478876252
+            },
+            {
+              "id": "haul_yvzdjc",
+              "x": -3.9633653463632466,
+              "y": 81.75062172236225,
+              "z": 53.93147478876252
+            },
+            {
+              "id": "haul_babi1v",
+              "x": 18.758329165881204,
+              "y": 81.75062172236225,
+              "z": 51.590504834102795
+            },
+            {
+              "id": "haul_r1uecv",
+              "x": 18.758329165881204,
+              "y": 81.75062172236225,
+              "z": 51.590504834102795
+            },
+            {
+              "id": "haul_z8jjdr",
+              "x": 29.412922862878784,
+              "y": 81.75062172236225,
+              "z": 54.98774403963916
+            },
+            {
+              "id": "haul_o411vd",
+              "x": 29.412922862878784,
+              "y": 81.75062172236225,
+              "z": 54.98774403963916
+            },
+            {
+              "id": "haul_fx8cpy",
+              "x": 50.74946709351201,
+              "y": 82.9982200834201,
+              "z": 53.667095912991726
+            },
+            {
+              "id": "haul_skkh07",
+              "x": 50.74946709351201,
+              "y": 82.9982200834201,
+              "z": 53.667095912991726
+            },
+            {
+              "id": "haul_0ism87",
+              "x": 56.07159628856255,
+              "y": 83.0078019956188,
+              "z": 48.02952944757031
+            },
+            {
+              "id": "haul_130it8",
+              "x": 56.07159628856255,
+              "y": 83.0078019956188,
+              "z": 48.02952944757031
+            },
+            {
+              "id": "haul_zheilj",
+              "x": 60.680807473329004,
+              "y": 83.0078019956188,
+              "z": 34.42802203972156
+            },
+            {
+              "id": "haul_xngolc",
+              "x": 60.680807473329004,
+              "y": 83.0078019956188,
+              "z": 34.42802203972156
+            },
+            {
+              "id": "haul_xx6x5s",
+              "x": 52.11518080401545,
+              "y": 82.6926934070099,
+              "z": 29.17219050499403
+            },
+            {
+              "id": "haul_6l8p9y",
+              "x": 52.11518080401545,
+              "y": 82.6926934070099,
+              "z": 29.17219050499403
+            },
+            {
+              "id": "haul_vh60uh",
+              "x": 35.18198129638301,
+              "y": 81.8323016481185,
+              "z": 26.027910120879664
+            },
+            {
+              "id": "haul_2375iz",
+              "x": 35.18198129638301,
+              "y": 81.8323016481185,
+              "z": 26.027910120879664
+            },
+            {
+              "id": "haul_1jdwqd",
+              "x": 17.636140706225063,
+              "y": 81.40176196743643,
+              "z": 23.842448009550818
+            },
+            {
+              "id": "haul_a4ieez",
+              "x": 17.636140706225063,
+              "y": 81.40176196743643,
+              "z": 23.842448009550818
+            },
+            {
+              "id": "haul_rgozfr",
+              "x": 11.449503880909301,
+              "y": 81.00665627370114,
+              "z": 22.69864515224152
+            },
+            {
+              "id": "haul_7z3ci1",
+              "x": 11.449503880909301,
+              "y": 81.00665627370114,
+              "z": 22.69864515224152
+            },
+            {
+              "id": "haul_299o7l",
+              "x": 6.501678373686017,
+              "y": 81.00130448291125,
+              "z": 27.11571272939671
+            },
+            {
+              "id": "haul_rue5ww",
+              "x": 6.501678373686017,
+              "y": 81.00130448291125,
+              "z": 27.11571272939671,
+              "label": "End"
+            }
+          ]
+        },
+        {
+          "@type": "Property",
+          "name": "segments",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": {
+              "@type": "Object",
+              "fields": [
+                {
+                  "name": "a",
+                  "schema": "string"
+                },
+                {
+                  "name": "b",
+                  "schema": "string"
+                },
+                {
+                  "name": "cost",
+                  "schema": "double"
+                }
+              ]
+            }
+          },
+          "value": [
+            {
+              "a": "haul_2mf7sd",
+              "b": "haul_65jaoe"
+            },
+            {
+              "a": "haul_2mf7sd",
+              "b": "haul_nj36y1"
+            },
+            {
+              "a": "haul_nj36y1",
+              "b": "haul_bv9zh1"
+            },
+            {
+              "a": "haul_nj36y1",
+              "b": "haul_b9ud6f"
+            },
+            {
+              "a": "haul_b9ud6f",
+              "b": "haul_nw6n7h"
+            },
+            {
+              "a": "haul_b9ud6f",
+              "b": "haul_igu8wy"
+            },
+            {
+              "a": "haul_igu8wy",
+              "b": "haul_flqikv"
+            },
+            {
+              "a": "haul_igu8wy",
+              "b": "haul_2mgwj1"
+            },
+            {
+              "a": "haul_2mgwj1",
+              "b": "haul_oo3kiv"
+            },
+            {
+              "a": "haul_2mgwj1",
+              "b": "haul_q8m4r5"
+            },
+            {
+              "a": "haul_q8m4r5",
+              "b": "haul_cc476p"
+            },
+            {
+              "a": "haul_q8m4r5",
+              "b": "haul_9mks78"
+            },
+            {
+              "a": "haul_9mks78",
+              "b": "haul_57iwsn"
+            },
+            {
+              "a": "haul_9mks78",
+              "b": "haul_vd3pnj"
+            },
+            {
+              "a": "haul_vd3pnj",
+              "b": "haul_xplydu"
+            },
+            {
+              "a": "haul_vd3pnj",
+              "b": "haul_ql7yrb"
+            },
+            {
+              "a": "haul_ql7yrb",
+              "b": "haul_aujnku"
+            },
+            {
+              "a": "haul_ql7yrb",
+              "b": "haul_eg7tm5"
+            },
+            {
+              "a": "haul_vch2oh",
+              "b": "haul_adiv27"
+            },
+            {
+              "a": "haul_vch2oh",
+              "b": "haul_8s7hay"
+            },
+            {
+              "a": "haul_8s7hay",
+              "b": "haul_dpa0ej"
+            },
+            {
+              "a": "haul_8s7hay",
+              "b": "haul_prpd8m"
+            },
+            {
+              "a": "haul_prpd8m",
+              "b": "haul_7d8pbm"
+            },
+            {
+              "a": "haul_prpd8m",
+              "b": "haul_shn1ij"
+            },
+            {
+              "a": "haul_shn1ij",
+              "b": "haul_zvjecg"
+            },
+            {
+              "a": "haul_shn1ij",
+              "b": "haul_bipdq2"
+            },
+            {
+              "a": "haul_bipdq2",
+              "b": "haul_24vmnv"
+            },
+            {
+              "a": "haul_bipdq2",
+              "b": "haul_g3ty0y"
+            },
+            {
+              "a": "haul_g3ty0y",
+              "b": "haul_9kg8yt"
+            },
+            {
+              "a": "haul_g3ty0y",
+              "b": "haul_q429lb"
+            },
+            {
+              "a": "haul_q429lb",
+              "b": "haul_vklytd"
+            },
+            {
+              "a": "haul_q429lb",
+              "b": "haul_yrl3ax"
+            },
+            {
+              "a": "haul_yrl3ax",
+              "b": "haul_hp3psa"
+            },
+            {
+              "a": "haul_yrl3ax",
+              "b": "haul_jr3k5g"
+            },
+            {
+              "a": "haul_jr3k5g",
+              "b": "haul_2t27kd"
+            },
+            {
+              "a": "haul_jr3k5g",
+              "b": "haul_nqu5dr"
+            },
+            {
+              "a": "haul_nqu5dr",
+              "b": "haul_su85yv"
+            },
+            {
+              "a": "haul_nqu5dr",
+              "b": "haul_411bg5"
+            },
+            {
+              "a": "haul_411bg5",
+              "b": "haul_8yn9al"
+            },
+            {
+              "a": "haul_411bg5",
+              "b": "haul_m69if4"
+            },
+            {
+              "a": "haul_m69if4",
+              "b": "haul_c6f4vo"
+            },
+            {
+              "a": "haul_m69if4",
+              "b": "haul_35p7dd"
+            },
+            {
+              "a": "haul_35p7dd",
+              "b": "haul_d2q9d4"
+            },
+            {
+              "a": "haul_35p7dd",
+              "b": "haul_rqfz2y"
+            },
+            {
+              "a": "haul_rqfz2y",
+              "b": "haul_05pzvz"
+            },
+            {
+              "a": "haul_rqfz2y",
+              "b": "haul_yvzdjc"
+            },
+            {
+              "a": "haul_yvzdjc",
+              "b": "haul_babi1v"
+            },
+            {
+              "a": "haul_yvzdjc",
+              "b": "haul_r1uecv"
+            },
+            {
+              "a": "haul_r1uecv",
+              "b": "haul_z8jjdr"
+            },
+            {
+              "a": "haul_r1uecv",
+              "b": "haul_o411vd"
+            },
+            {
+              "a": "haul_o411vd",
+              "b": "haul_fx8cpy"
+            },
+            {
+              "a": "haul_o411vd",
+              "b": "haul_skkh07"
+            },
+            {
+              "a": "haul_skkh07",
+              "b": "haul_0ism87"
+            },
+            {
+              "a": "haul_skkh07",
+              "b": "haul_130it8"
+            },
+            {
+              "a": "haul_130it8",
+              "b": "haul_zheilj"
+            },
+            {
+              "a": "haul_130it8",
+              "b": "haul_xngolc"
+            },
+            {
+              "a": "haul_xngolc",
+              "b": "haul_xx6x5s"
+            },
+            {
+              "a": "haul_xngolc",
+              "b": "haul_6l8p9y"
+            },
+            {
+              "a": "haul_6l8p9y",
+              "b": "haul_vh60uh"
+            },
+            {
+              "a": "haul_6l8p9y",
+              "b": "haul_2375iz"
+            },
+            {
+              "a": "haul_2375iz",
+              "b": "haul_1jdwqd"
+            },
+            {
+              "a": "haul_2375iz",
+              "b": "haul_a4ieez"
+            },
+            {
+              "a": "haul_a4ieez",
+              "b": "haul_rgozfr"
+            },
+            {
+              "a": "haul_a4ieez",
+              "b": "haul_7z3ci1"
+            },
+            {
+              "a": "haul_7z3ci1",
+              "b": "haul_299o7l"
+            },
+            {
+              "a": "haul_7z3ci1",
+              "b": "haul_rue5ww"
+            }
+          ]
+        },
+        {
+          "@type": "Property",
+          "name": "assignedEquipmentIds",
+          "schema": {
+            "@type": "Array",
+            "elementSchema": "string"
+          },
+          "value": [
+            "twin_Haul_Truck_CAT_777_2",
+            "twin_Haul_Truck_CAT_777_3"
+          ]
+        },
+        {
+          "@type": "Relationship",
+          "name": "assignedEquipment",
+          "target": "dtmi:com:akCopperMine:BaseEquipment;2"
+        }
+      ]
+    }
+  ]

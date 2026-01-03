@@ -1,0 +1,83 @@
+// Prisma schema for DTDL AI Challenge
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Telemetry records from mine equipment
+// Stores EXACT fields from telemetry.json (time -> timestamp conversion only)
+model TelemetryRecord {
+  id        String   @id @default(uuid())
+  timestamp DateTime @db.Timestamptz(6) // Converted from "time" field
+  truckId   String
+
+  // EXACT fields from telemetry.json - no computed/derived fields
+  status              String? // Equipment status
+  payload             Float?  // Payload in tonnes
+  speedMph            Float?  // Speed in mph
+  posX                Float?  // X coordinate
+  posY                Float?  // Y coordinate
+  posZ                Float?  // Z coordinate (altitude)
+  headingDeg          Float?  // Heading in degrees
+  haulPhase           String? // Haul phase
+  haulPathId          String? // Haul path ID
+  engineTemp          Float?  // Engine temperature
+  fuelLevel           Float?  // Fuel level
+  fuelConsumptionRate Float?  // Fuel consumption rate
+  brakePedalPos       Float?  // Brake pedal position
+  throttlePos         Float?  // Throttle position
+  vibrationLevel      Float?  // Vibration level
+  tirePressureFL      Float?  // Tire pressure Front Left
+  tirePressureFR      Float?  // Tire pressure Front Right
+  tirePressureRLO     Float?  // Tire pressure Rear Left Outer
+  tirePressureRLI     Float?  // Tire pressure Rear Left Inner
+  tirePressureRRO     Float?  // Tire pressure Rear Right Outer
+  tirePressureRRI     Float?  // Tire pressure Rear Right Inner
+
+  // Store complete original JSON for reference
+  rawData Json? // Complete original record from JSON
+
+  @@index([truckId, timestamp])
+  @@index([haulPathId, timestamp])
+  @@map("telemetry_records")
+}
+
+// DTDL entities (digital twin model)
+// Stores EXACT structure from dtdl.json - no computed/derived fields
+model DTDLEntity {
+  id          String @id // Extracted from @id (entity name after __twin_)
+  dtdlId      String // Full DTMI ID (@id from JSON)
+  dtdlContext String // @context from JSON
+  dtdlType    String // @type from JSON
+  displayName String? // displayName from JSON
+  extends     String? // extends from JSON (parent interface)
+  contents    Json   // Complete contents array (Properties, Telemetry, Relationships)
+  components  Json?  // Components array (if present)
+
+  // Store complete original DTDL interface JSON
+  rawDTDL Json? // Complete original DTDL interface for full fidelity
+
+  @@index([dtdlId])
+  @@index([displayName])
+  @@map("dtdl_entities")
+}
+
+// Property constraints for validation
+model PropertyConstraint {
+  id            String  @id @default(uuid())
+  entityType    String
+  property      String
+  minValue      Float?
+  maxValue      Float?
+  readOnly      Boolean @default(false)
+  editable      Boolean @default(true)
+  allowedValues Json? // Array of allowed values if applicable
+
+  @@unique([entityType, property])
+  @@index([entityType])
+  @@map("property_constraints")
+}
