@@ -259,6 +259,53 @@ dtdl-ai-challenge/
 └── README.md
 ```
 
+## Deployment (Render)
+
+### Using render.yaml (Recommended)
+
+The project includes a `render.yaml` file for easy deployment:
+
+1. **Connect your GitHub repo** to Render
+2. **Render will automatically detect** the `render.yaml` file
+3. **Set environment variables** in Render dashboard:
+   - `OPENAI_API_KEY` (or `ANTHROPIC_API_KEY` if using Anthropic)
+4. **Deploy** - Render will automatically:
+   - Install dependencies with `npm ci`
+   - Build TypeScript with `npm run build`
+   - Generate Prisma client
+   - Run database migrations
+   - Start the server
+
+### Manual Configuration
+
+If you need to configure manually in Render dashboard:
+
+**Build Command:**
+```bash
+npm ci && npm run build && npx prisma generate && npx prisma migrate deploy
+```
+
+**Start Command:**
+```bash
+node dist/main.js
+```
+
+**Important Notes:**
+- Use **npm** (not yarn) - the project uses `package-lock.json`
+- Ensure the build command includes `npm run build` to compile TypeScript
+- The start command should be `node dist/main.js` (not `npm start` which might have issues)
+- Make sure `DATABASE_URL` is set (Render can auto-link if using render.yaml)
+
+### Environment Variables
+
+Required in Render dashboard:
+- `DATABASE_URL` - PostgreSQL connection string (auto-set if using render.yaml database)
+- `OPENAI_API_KEY` or `ANTHROPIC_API_KEY` - LLM API key
+- `LLM_PROVIDER` - `openai` or `anthropic`
+- `LLM_MODEL` - Model name (e.g., `gpt-4`, `gpt-3.5-turbo`, `claude-3-opus`)
+- `PORT` - Server port (default: 3000, Render sets this automatically)
+- `NODE_ENV` - Set to `production`
+
 ## Development
 
 ### Running Tests
