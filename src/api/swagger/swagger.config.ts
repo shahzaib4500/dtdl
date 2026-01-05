@@ -58,6 +58,10 @@ Currently no authentication required. In production, add API keys or OAuth.
     ],
     tags: [
       {
+        name: "Admin",
+        description: "Administrative endpoints for managing telemetry data",
+      },
+      {
         name: "Health",
         description: "Health check endpoints",
       },

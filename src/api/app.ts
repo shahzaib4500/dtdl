@@ -7,6 +7,7 @@ import swaggerUi from "swagger-ui-express";
 import { createQueryRouter } from "./routes/query.js";
 import { createCommandRouter } from "./routes/command.js";
 import healthRouter from "./routes/health.js";
+import adminRouter from "./routes/admin.js";
 import { errorHandler } from "./middleware/errorHandler.js";
 import { requestLogger } from "./middleware/requestLogger.js";
 import { QueryService } from "../services/QueryService.js";
@@ -70,6 +71,7 @@ export function createApp(
   app.use("/api/v1/health", healthRouter);
   app.use("/api/v1/query", createQueryRouter(queryService));
   app.use("/api/v1/command", createCommandRouter(commandService));
+  app.use("/api/v1/admin", adminRouter);
 
   // Error handling (must be last)
   app.use(errorHandler);
